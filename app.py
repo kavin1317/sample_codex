@@ -56,14 +56,26 @@ else:
 
 st.subheader(status)
 
+st.caption("Click a square or enter a move number (1-9).")
+
 board = st.session_state.board
 
 for row in range(3):
     cols = st.columns(3)
     for col in range(3):
         idx = row * 3 + col
-        label = board[idx] if board[idx] != " " else " "
-        if cols[col].button(label, key=f"cell_{idx}"):
+        label = board[idx] if board[idx] != " " else str(idx + 1)
+        if cols[col].button(label, key=f"cell_{idx}", use_container_width=True):
+            make_move(idx)
+
+with st.form("move_form"):
+    move = st.text_input("Enter move (1-9)", value="", max_chars=2)
+    submitted = st.form_submit_button("Submit move")
+    if submitted:
+        idx = ttt.parse_move(move) if move else None
+        if idx is None:
+            st.warning("Invalid input. Enter a number 1-9.")
+        else:
             make_move(idx)
 
 st.button("Reset", on_click=reset_game)
