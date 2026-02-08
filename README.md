@@ -2,28 +2,11 @@
 
 A simple Tic-Tac-Toe game with a Streamlit UI. Play by clicking the grid or by entering a move number (1-9).
 
-## Requirements
+## App
 
-- Python 3.10+
+Open the deployed app:
 
-## Setup
-
-```bash
-cd /Users/kavin/Documents/New\ project/sample_codex
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
-
-## Run
-
-```bash
-streamlit run app.py --server.port 8502 --server.address 127.0.0.1
-```
-
-Then open:
-
-- http://127.0.0.1:8502
+- https://tictactoe-gqek7fxs3appxonjiaz59zo.streamlit.app/
 
 ## How to Play
 
